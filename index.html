@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipanjali Dutta | Cybersecurity Enthusiast</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --highlight: #e94560;
+            --text: #f1f1f1;
+            --light-bg: #f8f9fa;
+            --dark-text: #333;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary);
+            color: var(--text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--highlight);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--highlight);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #111f27f7, #c69016);
+            color: var(--text);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--highlight);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #d6335c;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--highlight);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Certificates Section */
+        .certificates {
+            background-color: #65045b;
+            color: var(--text);
+        }
+
+        .certificates .section-title h2 {
+            color: var(--text);
+        }
+
+        .certificates .section-title h2::after {
+            background-color: var(--highlight);
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .cert-card {
+            background-color: var(--primary);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .cert-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--highlight);
+        }
+
+        .cert-content {
+            padding: 1.5rem;
+        }
+
+        .cert-content h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .cert-content p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .contact-card p {
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--highlight);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--text);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--highlight);
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--highlight);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary);
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+                text-align: center;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Dipanjali Dutta</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Hi, I'm Dipanjali Dutta</h1>
+                <p>A cybersecurity enthusiast currently pursuing my studies at the University of Engineering and Management (UEM), Kolkata.</p>
+                <p>I have strong programming skills in C, Python, and SQL, and I enjoy exploring areas related to system security, ethical hacking, and digital forensics.</p>
+                <a href="#certificates" class="btn">View My Certificates</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Cybersecurity Student & Tech Enthusiast</h3>
+                    <p>I'm a dedicated cybersecurity student at the University of Engineering and Management, Kolkata, with a passion for technology and security. My academic journey has provided me with a strong foundation in computer science principles and specialized knowledge in cybersecurity.</p>
+                    <p>I actively participate in technical communities and events — I was a part of the IEEE Member Blog Competition, and I also volunteer with SMF and Driveblaze, contributing to awareness and community engagement initiatives.</p>
+                    <p>My technical skills include:</p>
+                    <div class="skills">
+                        <span class="skill">C Programming</span>
+                        <span class="skill">Python</span>
+                        <span class="skill">SQL</span>
+                        <span class="skill">System Security</span>
+                        <span class="skill">Ethical Hacking</span>
+                        <span class="skill">Digital Forensics</span>
+                        <span class="skill">Network Security</span>
+                        <span class="skill">Cloud Computing</span>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="WhatsApp Image 2025-11-30 at 11.37.22 PM.jpeg" alt="Dipanjali Dutta" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Certificates</h2>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card">
+                    <img src="industrial.jpeg" alt="Industrial Visit Certificate" class="cert-img">
+                    <div class="cert-content">
+                        <h3>Industrial Visit</h3>
+                        <p>Diamond Beverages Private Limited, Taratala</p>
+                        <p>September 20, 2024</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <img src="chemestry.jpeg" alt="Chemistry Poster Competition" class="cert-img">
+                    <div class="cert-content">
+                        <h3>Chemistry Poster Competition</h3>
+                        <p>Department of Basic Science and Humanities</p>
+                        <p>September 27, 2024</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <img src="hacksnipt.jpeg" alt="HackSnippet 3.0" class="cert-img">
+                    <div class="cert-content">
+                        <h3>HackSnippet 3.0</h3>
+                        <p>Hackathon Participation</p>
+                        <p>February 8, 2025</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <img src="converge.jpeg" alt="Converge 2025" class="cert-img">
+                    <div class="cert-content">
+                        <h3>Converge 2025 Events</h3>
+                        <p>Multiple workshops and tech talks</p>
+                        <p>IEEE Computer Society</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <img src="rankcard.jpeg" alt="Rank Certificate" class="cert-img">
+                    <div class="cert-content">
+                        <h3>Rank 4 Certificate</h3>
+                        <p>1st Year Examination 2024-2025</p>
+                        <p>Institute of Engineering & Management</p>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <img src="volui (1).jpeg" alt="Volunteer Certificates" class="cert-img">
+                    <div class="cert-content">
+                        <h3>Volunteer Certificates</h3>
+                        <p>DriveBlaze 2025 & Smart Maker's Festival 2025</p>
+                        <p>Community Engagement</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Phone</h3>
+                        <a href="tel:+7029807448"><p>7029807448</p></a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                       
+                        <a href="mailto:@neha.ppmb@gmail.com"><h3>Email</h3></a>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Location</h3>
+                        <p>University of Engineering and Management, Kolkata</p>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <h3>LinkedIn</h3>
+                        <p><a href="https://www.linkedin.com/in/dipanjali-dutta-b04b40336?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="contact-link">Connect with me</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">Dipanjali Dutta</div>
+                    <p>Cybersecurity Enthusiast & Student at UEM Kolkata</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/dipanjali-dutta-b04b40336?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Dipanjali10" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/neha.ez_10?igsh=cW55ejIwZzV2dDNy"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Dipanjali Dutta. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
